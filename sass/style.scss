@@ -1,0 +1,294 @@
+// $bootstrap-path:            '../node_modules/bootstrap/scss/';
+@import '../node_modules/bootstrap/scss/mixins/box-shadow';
+@import '../node_modules/bootstrap/scss/mixins/forms';
+@import '../node_modules/bootstrap/scss/mixins/border-radius';
+@import '../node_modules/bootstrap/scss/mixins/gradients';
+@import '../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../node_modules/bootstrap/scss/mixins/transition';
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/forms';
+
+$color-white-transparent:   rgba(255,255,255,0.65);
+$color-light-gray:          rgb(238, 238, 238); // form/button bg
+$color-gray:                rgb(204,204,204);
+$color-black:               #130C0E;
+
+$color-green:               #4CAF50;
+$color-teal:                #33946D; // black
+$color-orange:              #DA764C; // white
+$color-pink:                #C44469; //
+$color-purple:              #99358A; // asian
+$color-yellow:              #DAD64C; // hispanic
+$color-tan:                 #7C7B63; // default/other
+
+$color-highlight:           #ffff00;
+
+.asian { background: $color-purple; }
+.black { background: $color-teal; }
+.hispanic { background: $color-yellow; }
+.white { background: $color-orange; }
+.other { background: $color-tan; }
+.highlight { background-color: $color-highlight; }
+
+$border-dotted: 1px dotted $color-gray;
+
+// Old colors
+// .asian { background: #36173A; }
+// .black { background: #00635D; }
+// .hispanic { background: #E3D26F; }
+// .other { background: #BB6B00; }
+// .white { background: #7B0828; }
+
+body {
+  // font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", "Roboto Light", "Segoe UI Web Light", "Segoe UI Light", "Segoe UI Web Regular", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: Consolas, monaco, monospace;
+
+  margin: 0;
+  color: $color-black;
+  font-size: 12px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Avenir';
+  font-weight: 400;
+  font-size: 2.5em;
+}
+
+hr {
+  width: 60%;
+  border-top: $border-dotted;
+}
+
+svg {
+  overflow: visible;
+}
+
+#chart {
+  position: relative;
+}
+
+#school-search {
+  position: relative;
+  .close {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+    z-index: 1;
+    cursor: pointer;
+  }
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 200px;
+  font-family: Consolas, monaco, monospace;
+  font-size: 10px;
+  padding: 4px 20px 4px 8px;
+  border: 1px solid $color-gray;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  outline: none;
+  float: left;
+  margin: 4px;
+}
+.tt-menu {
+  width: 422px;
+  margin-top: 4px;
+  margin-left: 4px;
+  padding: 8px 4px;
+  background-color: #fff;
+  border: 1px solid $color-gray;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  .tt-selectable {
+    cursor: pointer;
+  }
+  .tt-suggestion {
+    margin: 4px 0px;
+    border-bottom: $border-dotted;
+  }
+  .tt-suggestion:hover {
+    background-color: $color-light-gray;
+  }
+  .tt-suggestion.tt-cursor {
+    background-color: $color-highlight;
+  }
+}
+
+#button {
+  display: table;
+  float: left;
+  width: 10vw;
+  height: 50px;
+  background: dimgray;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  &:hover {
+    background: grey;
+  }
+  &:active {
+    background: #fe0002;
+  }
+  span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+}
+
+.search-container {
+  text-align: center;
+  width: 50.5vw;
+  margin-left: 24.75vw;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+#searchHeader {
+  text-align: center;
+}
+
+.legend {
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  $legend-height: 20px;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column;
+  .legend-element {
+    display: inline-flex;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    .legend-circle {
+      width: $legend-height;
+      height: $legend-height;
+      border-radius: $legend-height / 2;
+      border: 0.5px solid $color-black;
+      overflow: visible;
+      box-sizing: border-box;
+    }
+    span {
+      font-family: Consolas, monaco, monospace;
+      padding-left: 4px;
+      padding-right: 4px;
+      text-align: center;
+      line-height: $legend-height;
+    }
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 50px;
+  > div {
+    padding: 0 10px;
+    border-right: $border-dotted;
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+}
+
+.axis {
+  text {
+    fill: $color-black;
+  }
+}
+
+.school {
+  circle.node {
+    fill-opacity: 0.35;
+    stroke: gray;
+    stroke-width: 0.5;
+  }
+  path {
+    fill: none;
+    stroke: black;
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  &.hover circle { stroke: $color-black; fill-opacity: 1; }
+  &.hover path { opacity: 1; }
+}
+
+#information {
+  display: none;
+  position: absolute;
+  width: 250px;
+  padding: 10px 20px;
+  border: 2px solid gray;
+  border-radius: 3px;
+  background-color: $color-white-transparent;
+  pointer-events: none;
+  h4 {
+    margin-top: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border-bottom: $border-dotted;
+  }
+  p {
+    font-size: 12px;
+    margin-top: 0;
+    margin-bottom: 4px;
+    font-weight: bold;
+    span {
+      font-weight: normal;
+      background-color: $color-highlight;
+    }
+  }
+}
+
+button, select {
+  font-family: Consolas, monaco, monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+select {
+  @extend .form-control;
+  width: auto!important;
+  height: 22px!important;
+  margin: 4px;
+  background-color: $color-light-gray;
+  border-color: $color-light-gray;
+}
+
+// No/Yes buttons
+button.ny-btn {
+  text-align: center;
+  text-decoration: none;
+  color:  $color-black;
+  background-color: $color-green; /* green */
+  min-width: 40px;
+  border: none;
+  padding: 4px 8px;
+  display: inline-block;
+  margin: 4px;
+}
+button.ny-btn:focus {
+  outline:0;
+}
+span.ny-label {
+  display: block;
+  color:  $color-black;
+  font-size: 10px;
+  font-family: Consolas, monaco, monospace;
+}

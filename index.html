@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Math, Money, and Race</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1><span class="highlight">Math, Money, and Race</span></h1>
+  <h3>Ethnic Disparities in Family Income and Math Scores in New York City Public Schools</h3>
+  <hr>
+  <div class="filters">
+    <div id="filter-charter"></div>
+    <div id="filter-gifted"></div>
+    <div id="filter-duallang"></div>
+    <div id="filter-zoned"></div>
+    <div id="filter-unzoned"></div>
+    <div>
+      <span class="ny-label">District</span>
+      <select id="select-district">
+        <option value="all">All</option>
+      </select>
+    </div>
+    <div>
+      <span class="ny-label">Find a school</span>
+      <div id="school-search">
+        <span aria-hidden="true" class="close">&times;</span>
+        <input class="typeahead" type="text" placeholder="School name">
+      </div>
+    </div>
+  </div>
+  <div id="chart">
+    <div class="legend">
+      <div class="legend-element">
+        <div class="legend-circle asian"></div>
+        <span>Asian</span>
+      </div>
+      <div class="legend-element">
+        <div class="legend-circle black"></div>
+        <span>Black</span>
+      </div>
+      <div class="legend-element">
+        <div class="legend-circle hispanic"></div>
+        <span>Hispanic</span>
+      </div>
+      <div class="legend-element">
+        <div class="legend-circle white"></div>
+        <span>White</span>
+      </div>
+      <div class="legend-element">
+        <div class="legend-circle other"></div>
+        <span>Other</span>
+      </div>
+    </div>
+  </div>
+  <div id="information">
+    <h4 class="name"></h4>
+    <p>DBN: <span id="info-dbn"></span></p>
+    <p>Admissions method: <span id="info-elemadmissions"></span></p>
+    <p>Avg. math scores: <span id="info-mathrating"></span></p>
+  </div>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/typeahead.js"></script>
+  <script src="js/yes-no.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

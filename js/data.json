@@ -1,0 +1,52 @@
+[
+    {
+        "dbn": "01M015",
+        "eth": "Black",
+        "students": 25,
+    
+        "medincome": 25677.8,
+        "elarating": 2.24,
+    
+        "mathrating": 2.266
+    },
+    {
+        "dbn": "01M015",
+        "eth": "Hispanic",
+        "students": 25,
+        "medincome": 31097.72,
+        "elarating": 2.3,
+        "mathrating": 2.273
+    },
+    {
+        "dbn": "01M019",
+        "eth": "Asian",
+        "students": 18,
+        "medincome": 60643.944,
+        "elarating": 3.158,
+        "mathrating": 3.606
+    },
+    {
+        "dbn": "01M019",
+        "eth": "Black",
+        "students": 19,
+        "medincome": 42812.421,
+        "elarating": 2.754,
+        "mathrating": 2.577
+    },
+    {
+        "dbn": "01M019",
+        "eth": "Hispanic",
+        "students": 63,
+        "medincome": 51557.429,
+        "elarating": 2.79,
+        "mathrating": 2.889
+    },
+    {
+        "dbn": "01M019",
+        "eth": "White",
+        "students": 10,
+        "medincome": 76058.9,
+        "elarating": 3.156,
+        "mathrating": 3.285
+    }
+]
