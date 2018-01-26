@@ -363,11 +363,28 @@ svg {
 #chart {
   position: relative; }
 
+#no-chart {
+  text-align: center;
+  display: none;
+  padding: 20px;
+  width: 160px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  background-color: #eeeeee; }
+
+@media (max-width: 760px) {
+  #chart, .filters-wrap {
+    display: none !important; }
+  #no-chart {
+    display: block; } }
+
 #school-search {
   position: relative; }
   #school-search .close {
     position: absolute;
-    top: 7px;
+    top: 6px;
     right: 12px;
     z-index: 1;
     cursor: pointer; }
@@ -378,14 +395,14 @@ svg {
   width: 200px;
   font-family: Consolas, monaco, monospace;
   font-size: 10px;
-  padding: 4px 20px 4px 8px;
+  padding: 3px 20px 3px 8px;
   border: 1px solid #cccccc;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   outline: none;
   float: left;
-  margin: 4px; }
+  margin-top: 4px; }
 
 .tt-menu {
   width: 422px;
@@ -441,7 +458,7 @@ svg {
   position: absolute;
   top: 20px;
   left: 10px;
-  margin: 0 80px;
+  margin: 0 70px;
   display: flex;
   flex-direction: column; }
   .legend .legend-element {
@@ -462,18 +479,32 @@ svg {
       text-align: center;
       line-height: 20px; }
 
+.filters-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  align-items: flex-start; }
+  .filters-wrap > span {
+    font-size: 10px;
+    margin-top: 10px;
+    text-transform: uppercase; }
+
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-top: 50px; }
+  flex-wrap: wrap;
+  margin-top: 10px; }
   .filters > div {
     padding: 0 10px;
     border-right: 1px dotted #cccccc; }
-    .filters > div:first-of-type {
-      padding-left: 0; }
+  .filters .filter {
+    flex: 0 1 auto;
+    white-space: nowrap; }
 
 .axis text {
   fill: #130C0E; }
@@ -529,7 +560,7 @@ button, select {
 select {
   width: auto !important;
   height: 22px !important;
-  margin: 4px;
+  margin-top: 4px;
   background-color: #eeeeee;
   border-color: #eeeeee; }
 
@@ -537,13 +568,14 @@ button.ny-btn {
   text-align: center;
   text-decoration: none;
   color: #130C0E;
-  background-color: #4CAF50;
-  /* green */
-  min-width: 40px;
+  background-color: #eee;
+  min-width: 44px;
   border: none;
   padding: 4px 8px;
   display: inline-block;
-  margin: 4px; }
+  margin-top: 4px; }
+  button.ny-btn.ny-btn-active {
+    background-color: #7AC143; }
 
 button.ny-btn:focus {
   outline: 0; }

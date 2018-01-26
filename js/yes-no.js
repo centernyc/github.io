@@ -31,26 +31,19 @@
 
             var btn = function(txt, bg, bgActive) {
                 container.append('button')
-                    .attr('class', 'ny-btn' + (txt == 'on' ? ' ny-btn-unselected' : ' ny-btn-selected'))
-                    .style('background', txt == 'on' ? bg : bgActive)
+                    .attr('class', 'ny-btn')
                     .text(txt)
                     .on('click', function () {
-                        d3.select(_selection).selectAll('.ny-btn')
-                            .style('background', bg)
-                            .classed('ny-btn-unselected', true)
-                            .classed('ny-btn-selected', false);
-
+                        var on = d3.select(this).classed("ny-btn-active");
                         d3.select(this)
-                            .style('background', bgActive)
-                            .classed('ny-btn-unselected', false)
-                            .classed('ny-btn-selected', true);
+                            .html(on ? 'off' : 'on')
+                            .classed("ny-btn-active", on ? false : true);
 
                         dispatcher.call("_click", this);
                     });
             };
 
-            var n = btn(nTxt, nBg, nBgActive);
-            var y = btn(yTxt, yBg, yBgActive);
+            var ny = btn(nTxt, nBg, nBgActive);
 
             return instance;
         };
@@ -59,37 +52,6 @@
             var value = dispatcher.on.apply(dispatcher, arguments);
             return value === dispatcher ? instance : value;
         }
-
-        instance.nBg = function(value) {
-            if (!arguments.length) return nBg;
-            nBg = value;
-            return this;
-        };
-        instance.yBg = function(value) {
-            if (!arguments.length) return yBg;
-            yBg = value;
-            return this;
-        };
-        instance.nBgActive = function(value) {
-            if (!arguments.length) return nBgActive;
-            nBgActive = value;
-            return this;
-        };
-        instance.yBgActive = function(value) {
-            if (!arguments.length) return yBgActive;
-            yBgActive = value;
-            return this;
-        };
-        instance.nTxt = function(value) {
-            if (!arguments.length) return nTxt;
-            nTxt = value;
-            return this;
-        };
-        instance.yTxt = function(value) {
-            if (!arguments.length) return yTxt;
-            yTxt = value;
-            return this;
-        };
 
         // d3.rebind(instance, dispatch, 'on');
         return instance;

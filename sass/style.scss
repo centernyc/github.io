@@ -72,11 +72,32 @@ svg {
   position: relative;
 }
 
+#no-chart {
+  text-align: center;
+  display: none;
+  padding: 20px;
+  width: 160px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  background-color: $color-light-gray;
+}
+
+@media(max-width: 760px) {
+  #chart, .filters-wrap {
+    display: none!important;
+  }
+  #no-chart {
+    display: block;
+  }
+}
+
 #school-search {
   position: relative;
   .close {
     position: absolute;
-    top: 7px;
+    top: 6px;
     right: 12px;
     z-index: 1;
     cursor: pointer;
@@ -89,14 +110,14 @@ svg {
   width: 200px;
   font-family: Consolas, monaco, monospace;
   font-size: 10px;
-  padding: 4px 20px 4px 8px;
+  padding: 3px 20px 3px 8px;
   border: 1px solid $color-gray;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
   outline: none;
   float: left;
-  margin: 4px;
+  margin-top: 4px;
 }
 .tt-menu {
   width: 422px;
@@ -164,7 +185,7 @@ svg {
   top: 20px;
   left: 10px;
   $legend-height: 20px;
-  margin: 0 80px;
+  margin: 0 70px;
   display: flex;
   flex-direction: column;
   .legend-element {
@@ -189,19 +210,35 @@ svg {
   }
 }
 
+.filters-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+  > span {
+    font-size: 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+}
+
 .filters {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  margin-left: 80px;
-  margin-right: 80px;
-  margin-top: 50px;
+  flex-wrap: wrap;
+  margin-top: 10px;
   > div {
     padding: 0 10px;
     border-right: $border-dotted;
-    &:first-of-type {
-      padding-left: 0;
-    }
+  }
+  .filter {
+    flex: 0 1 auto;
+    white-space: nowrap;
   }
 }
 
@@ -266,7 +303,7 @@ select {
   @extend .form-control;
   width: auto!important;
   height: 22px!important;
-  margin: 4px;
+  margin-top: 4px;
   background-color: $color-light-gray;
   border-color: $color-light-gray;
 }
@@ -276,12 +313,15 @@ button.ny-btn {
   text-align: center;
   text-decoration: none;
   color:  $color-black;
-  background-color: $color-green; /* green */
-  min-width: 40px;
+  background-color: #eee;
+  min-width: 44px;
   border: none;
   padding: 4px 8px;
   display: inline-block;
-  margin: 4px;
+  margin-top: 4px;
+  &.ny-btn-active {
+    background-color: #7AC143;
+  }
 }
 button.ny-btn:focus {
   outline:0;

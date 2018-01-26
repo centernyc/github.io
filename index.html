@@ -2,31 +2,37 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Math, Money, and Race</title>
+  <title>Interactive Data Visualization</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- <h1><span class="highlight">Math, Money, and Race</span></h1> -->
-  <h3>2016 Math Scores by Race and Income, New York City Public School Students in Grades 3-5</h3>
+  <h2 style="font-size: 22px;"">Interactive Data Visualization</h2>
+  <h3 style="font-size: 18px;">2016 Math Scores by Race and Income, New York City Public School Students in Grades 3-5</h3>
   <hr>
-  <div class="filters">
-    <div id="filter-charter"></div>
-    <div id="filter-gifted"></div>
-    <div id="filter-duallang"></div>
-    <div id="filter-zoned"></div>
-    <div id="filter-unzoned"></div>
-    <div>
-      <span class="ny-label">District</span>
-      <select id="select-district">
-        <option value="all">All</option>
-      </select>
-    </div>
-    <div>
-      <span class="ny-label">Find a school</span>
-      <div id="school-search">
-        <span aria-hidden="true" class="close">&times;</span>
-        <input class="typeahead" type="text" placeholder="School name">
+  <div id="no-chart"><p>Please visit this page on a larger display to view the visualization.</p></div>
+  <div class="filters-wrap">
+    <span>Filter by:</span>&nbsp;
+    <div class="filters">
+      <div>
+        <span class="ny-label">District</span>
+        <select id="select-district">
+          <option value="all">All</option>
+        </select>
       </div>
+      <div id="school-search-wrap">
+        <span class="ny-label">School name</span>
+        <div id="school-search">
+          <span aria-hidden="true" class="close">&times;</span>
+          <input class="typeahead" type="text" placeholder="School">
+        </div>
+      </div>
+    </div>
+    <div class="filters">
+      <div id="filter-charter" class="filter"></div>
+      <div id="filter-gifted" class="filter"></div>
+      <div id="filter-zoned" class="filter"></div>
+      <div id="filter-unzoned" class="filter"></div>
+      <div id="filter-duallang" class="filter"></div>
     </div>
   </div>
   <div id="chart">
@@ -60,7 +66,6 @@
     <p>Average math scores: <span id="info-mathrating"></span></p>
   </div>
 
-  <div style="width: 80vw; margin-left: 10vw;"><h4>Visualization created by <a target="blanc" style="color: red;" href="http://karlapolo.com"> Karla Polo-Garcia</a> and <a target="blanc" style="color: red;" href="http://www.arsenal310.com">Arsenal310</a>. Data on individual student census tracts, racial or ethnic categories, and 2016 math scores were provided by the NYC Department of Education. Groups with fewer than 10 students are not displayed on the visualization in accordance with federal student privacy laws. See endnote ii for more details on methodology.</h4></div>
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/typeahead.js"></script>
